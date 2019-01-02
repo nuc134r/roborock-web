@@ -16,6 +16,3 @@ Automatic discovery of the robot without the need to assign it static DHCP IP is
 4. Set locale file name in `config.json`
 
 Locale contributions are welcome.
-
-# Screenshots
-

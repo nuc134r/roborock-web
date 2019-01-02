@@ -11,21 +11,27 @@ html(lang='')
     link(rel='shortcut icon', href='/images/favicon.png')
     link(rel='stylesheet', href='/css/main.css')
 
-  body
+  body(id='body')
     .art-bg
 
     .art.art-charged
 
     .counters-wrap
       .counter-wrap
-        .counter-value 15
+        .counter
+          .counter-value 15
+            sup.counter-unit м2
         .counter-text #{i18n.CounterAreaLabel}
       .counter-wrap
-        .counter-value 38
+        .counter
+          .counter-value 38
+            sup.counter-unit %
         .counter-text #{i18n.CounterBatteryLabel}
       .counter-wrap
-        //.counter-value 14‘
-        .counter-value 14
+        .counter
+          .counter-value 14‘
+            //sup.counter-unit(style="font-size: 1rem;") ‘
+          //.counter-value 14‘
         .counter-text #{i18n.CounterTimeLabel}
     
     .buttons-wrap
@@ -36,5 +42,4 @@ html(lang='')
 
       button.button.button-primary #{i18n.StartCleanupButton}
 
-    script(async defer src="https://cdnjs.cloudflare.com/ajax/libs/UAParser.js/0.7.19/ua-parser.min.js")
     script(src='/js/main.js')

@@ -37,3 +37,5 @@ Thumbs.db
 # Ignore built ts files
 dist/**/*
 
+# Ignore local todo file
+todo

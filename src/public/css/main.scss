@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
 html {
-  position: relative;
-  height: 100vh;
+  position: fixed;
+  height: 100%;
+  width: 100%;
 }
 
 body {
@@ -46,13 +47,24 @@ textarea {
 
 .counters-wrap {
   position: absolute;
-  top: 50vh;
+  top: 300px;
 }
 
 .counter-wrap {
   width: calc(100vw/3);
   height: 50px;
   display:inline-block;
+}
+
+.counter {
+  width: min-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.counter-unit {
+  font-size: 12px;
+  margin-left: 3px;
 }
 
 .counter-value {
@@ -73,6 +85,7 @@ $accent-darker: #474f98;
 button {
   font-family: inherit;
 }
+
 button:focus {
   outline: 0px;
 }
@@ -114,11 +127,13 @@ button:focus {
   bottom: 0px;
   left: 0px;
   right: 0px;
+  background: white;
+  padding-top: 8px;
 }
 
 .art {
   position: relative;
-  height: 50vh;
+  height: 300px;
   background-repeat: no-repeat;
   background-position-x: center;
 }

@@ -1,8 +1,16 @@
-document.addEventListener("DOMContentLoaded", function (event) {
-    window.scrollTo(0, 1);
+document.addEventListener("DOMContentLoaded", DomLoaded);
 
-    const parser = new UAParser();
-    if (parser.getResult().os.name == "Android") {
-        // alert("Android");
+function DomLoaded() {
+    ConfigureHeight();
+}
+
+function ConfigureHeight() {
+    function setVerticalSize() {
+        const vH = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+        document.documentElement.setAttribute("style", "height:" + vH + "px;");
     }
-});
+    setVerticalSize();
+
+    window.addEventListener("onorientationchange", setVerticalSize, true);
+    window.onresize = () => setVerticalSize();
+}

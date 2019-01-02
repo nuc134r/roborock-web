@@ -5,9 +5,9 @@ Work in progress.
 Developed for use on devices not capable of running Mi Home app. No vacuum rooting needed.
 
 # Setting up
-Node.js application must be hosted in the same LAN with the vacuum. Robot IP address and token are set in `config.json`. Token can be obtained with [this patched Mi Home app](http://www.kapiba.ru/2017/11/mi-home.html). 
+Node.js application must be hosted in the same LAN with the vacuum. Robot IP address and token are set in `config.json`. Token can be obtained with [this patched Mi Home app](http://www.kapiba.ru/2017/11/mi-home.html).
 
-Automatic discovery of the robot without the need to assign it static DHCP IP is possible and can be implemented with the APIs of [miio](https://github.com/aholstenson/miio) library.
+Vacuum must be assigned a static DHCP IP addess. Automatic discovery of the robot is possible and can be implemented with the APIs of [miio](https://github.com/aholstenson/miio) library (fill out an issue if you need it).
 
 # Localization
 1. Copy `/i18n/en-US.json` file

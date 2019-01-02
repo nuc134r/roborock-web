@@ -2,23 +2,23 @@
 
 import { Response, Request, NextFunction } from "express";
 import { Robot } from "./../RobotManager";
+import { VacuumMode } from "../models/VacuumMode";
 
-/**
- * GET /api
- * List of API examples.
- */
-export let getApi = (req: Request, res: Response) => {
-    res.render("api/index", {
-        title: "API Examples"
-    });
-};
+// API methods
 
-export let getStatus = async (req: Request, res: Response) => {
+export let getStatus = async (req: Request, res: Response) => RunAndSendResultAsJson(res, Robot.getStatus());
+
+export let setMopMode = async (req: Request, res: Response) => RunAndSendResultAsJson(res, Robot.setMode(VacuumMode.Mop));
+
+export let setMaxMode = async (req: Request, res: Response) => RunAndSendResultAsJson(res, Robot.setMode(VacuumMode.Max));
+
+
+
+async function RunAndSendResultAsJson(res: Response, promise: Promise<any>) {
     try {
-        const robotStatus = await Robot.getStatus();
-        res.json(robotStatus);
+        res.json(await promise);
     } catch (error) {
         res.status(400);
-        res.send(error);
+        res.send(JSON.stringify(error));
     }
-};
+}

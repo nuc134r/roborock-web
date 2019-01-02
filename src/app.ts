@@ -47,11 +47,11 @@ app.use(
  */
 app.get("/", homeController.index);
 
-
 /**
- * API examples routes.
+ * API routes.
  */
-app.get("/api", apiController.getApi);
 app.get("/api/status", apiController.getStatus);
+app.post("/api/mop", apiController.setMopMode);
+app.post("/api/sweep", apiController.setMaxMode);
 
 export default app;

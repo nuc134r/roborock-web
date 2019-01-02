@@ -8,7 +8,7 @@ export class Roborock {
         this.device = device;
     }
 
-    setMopMode(mode: VacuumMode): Promise<any> {
+    setMode(mode: VacuumMode): Promise<any> {
         return this.device.call("set_custom_mode", [mode]);
     }
 

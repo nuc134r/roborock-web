@@ -2,5 +2,8 @@
     "CounterAreaLabel" : "Площадь",
     "CounterBatteryLabel" : "Батарея",
     "CounterTimeLabel" : "Время",
-    "StartCleanupButton" : "Начать уборку"
+    "StartCleanupButton" : "Начать уборку",
+    "ModeSweeping" : "Сухая",
+    "ModeMopping" : "Влажная",
+    "CleanupModeLabel" : "Режим уборки:"
 }

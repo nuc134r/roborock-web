@@ -2,5 +2,8 @@
     "CounterAreaLabel" : "Area",
     "CounterBatteryLabel" : "Battery",
     "CounterTimeLabel" : "Time",
-    "StartCleanupButton" : "Start cleanup"
+    "StartCleanupButton" : "Start cleanup",
+    "ModeSweeping" : "Sweep",
+    "ModeMopping" : "Mop",
+    "CleanupModeLabel" : "Cleanup mode:"
 }

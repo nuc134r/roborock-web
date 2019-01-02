@@ -1,16 +1,4 @@
-@import "themes/default/variables";
-
-@import "lib/bootstrap/bootstrap";
-@import "lib/font-awesome/font-awesome";
-
-@import "themes/default/default";
-
-
-
 @import url('https://fonts.googleapis.com/css?family=Roboto');
-
-// Scaffolding
-// -------------------------
 
 html {
   position: relative;
@@ -18,12 +6,9 @@ html {
 }
 
 body {
-  height: 100vh;
-  @supports (-webkit-appearance:none) {
-    .os-android & {
-      min-height: calc(100vh - 56px);
-    }
-  }
+  line-height: 1.42857;
+  color: #333333;
+  margin: 0;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -46,7 +31,7 @@ textarea {
   resize: vertical;
 }
 
-// Alerts
+// Custom
 // -------------------------
 
 .art-bg {
@@ -83,6 +68,14 @@ textarea {
 }
 
 $accent: #606BCF;
+$accent-darker: #474f98;
+
+button {
+  font-family: inherit;
+}
+button:focus {
+  outline: 0px;
+}
 
 .button {
   width: calc(100% - 32px);
@@ -104,6 +97,18 @@ $accent: #606BCF;
   background: $accent;
 }
 
+.button-primary:active {
+  background: $accent-darker;
+}
+
+.button-secondary {
+  background: #888888;
+}
+
+.button-warning {
+  background: #DC552A;
+}
+ 
 .buttons-wrap {
   position: absolute;
   bottom: 0px;
@@ -115,9 +120,51 @@ $accent: #606BCF;
   position: relative;
   height: 50vh;
   background-repeat: no-repeat;
+  background-position-x: center;
 }
 
 .art-charged {
   background-image: url(/images/robo-charged.svg);
   top: 128px;
+}
+
+.mode-switch-wrap {
+  width: calc(100% - 32px);
+  height: 44px;
+  margin: 0px 16px 16px 16px;
+  border-radius: 3px;
+}
+
+.button-switch {
+  display: inline-block;
+  border: 2px solid #C4C4C4;
+  background: white;
+  height: 44px;
+  padding: 0px;
+  width: 50%;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.button-switch-active {
+  background: $accent;
+  border-color: $accent;
+  color: white;
+}
+
+.button-switch-left {
+  border-radius: 3px 0px 0px 3px;
+  border-right: 0px;
+}
+
+.button-switch-right {
+  border-radius: 0px 3px 3px 0px;
+  border-left: 0px;
+}
+
+.mode-switch-label {
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.4);
+  margin-left: 16px;
+  margin-bottom: 8px;
 }

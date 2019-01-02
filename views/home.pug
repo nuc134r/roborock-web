@@ -3,7 +3,7 @@ html(lang='')
   head
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
-    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0')
     meta(name='mobile-web-app-capable', content='yes')
     title #{title}
     meta(name='description', content='')
@@ -27,11 +27,14 @@ html(lang='')
         //.counter-value 14‘
         .counter-value 14
         .counter-text #{i18n.CounterTimeLabel}
-
+    
     .buttons-wrap
+      .mode-switch-label #{i18n.CleanupModeLabel}
+      .mode-switch-wrap
+        button.button-switch.button-switch-left.button-switch-active #{i18n.ModeSweeping}
+        button.button-switch.button-switch-right #{i18n.ModeMopping}
+
       button.button.button-primary #{i18n.StartCleanupButton}
 
-    script(src='/js/lib/jquery-3.1.1.min.js')
-    script(src='/js/lib/bootstrap.min.js')
-    script(async defer src="https://buttons.github.io/buttons.js")
+    script(async defer src="https://cdnjs.cloudflare.com/ajax/libs/UAParser.js/0.7.19/ua-parser.min.js")
     script(src='/js/main.js')

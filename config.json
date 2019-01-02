@@ -1,4 +1,5 @@
 {
     "vacuumAddress": "IP Address of the vacuum",
-    "vacuumToken": "MIIO token"
+    "vacuumToken": "MIIO token",
+    "language" : "en-US"
 }

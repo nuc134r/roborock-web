@@ -1,3 +1,6 @@
+// import { ApiError } from "../../controllers/ApiError";
+// import { ApiErrorType } from "../../controllers/ApiError";
+
 document.addEventListener("DOMContentLoaded", DomLoaded);
 
 function DomLoaded() {
@@ -13,4 +16,7 @@ function ConfigureHeight() {
 
     window.addEventListener("onorientationchange", setVerticalSize, true);
     window.onresize = () => setVerticalSize();
+
+    // const a = new ApiError("s", ApiErrorType.RobotNotConnected);
+    // console.log(a.Error);
 }

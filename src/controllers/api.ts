@@ -1,18 +1,26 @@
 "use strict";
 
-import { Response, Request, NextFunction } from "express";
+import { Response, Request, NextFunction, Router } from "express";
 import { Robot } from "./../RobotManager";
 import { VacuumMode } from "../models/VacuumMode";
+import { ApiError, ApiErrorType } from "./ApiError";
 
 // API methods
 
-export let getStatus = async (req: Request, res: Response) => RunAndSendResultAsJson(res, Robot.getStatus());
+export let ApiRouter = Router();
 
-export let setMopMode = async (req: Request, res: Response) => RunAndSendResultAsJson(res, Robot.setMode(VacuumMode.Mop));
+ApiRouter.use((req: Request, res: Response, next: NextFunction) => {
+    if (Robot == undefined) {
+        res.status(400);
+        res.send(new ApiError("Robot is not connected", ApiErrorType.RobotNotConnected));
+    } else {
+        next();
+    }
+});
 
-export let setMaxMode = async (req: Request, res: Response) => RunAndSendResultAsJson(res, Robot.setMode(VacuumMode.Max));
-
-
+ApiRouter.get("/status", async (req: Request, res: Response) => RunAndSendResultAsJson(res, Robot.getStatus()));
+ApiRouter.post("/mop", async (req: Request, res: Response) => RunAndSendResultAsJson(res, Robot.setMode(VacuumMode.Mop)));
+ApiRouter.post("/sweep", async (req: Request, res: Response) => RunAndSendResultAsJson(res, Robot.setMode(VacuumMode.Max)));
 
 async function RunAndSendResultAsJson(res: Response, promise: Promise<any>) {
     try {

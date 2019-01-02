@@ -33,7 +33,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(lusca.xframe("SAMEORIGIN"));
 app.use(lusca.xssProtection(true));
-app.use(express.static("public"));
 app.use((req, res, next) => {
   res.locals.user = req.user;
   next();
@@ -51,8 +50,6 @@ app.get("/", homeController.index);
 /**
  * API routes.
  */
-app.get("/api/status", apiController.getStatus);
-app.post("/api/mop", apiController.setMopMode);
-app.post("/api/sweep", apiController.setMaxMode);
+app.use("/api", apiController.ApiRouter);
 
 export default app;

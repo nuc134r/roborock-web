@@ -4,6 +4,8 @@ Work in progress.
 
 Developed for use on devices not capable of running Mi Home app. No vacuum rooting needed. Other than S50 versions of Mi Vacuum can be supported if enough feedback is provided.
 
+Sweeping mode set through this app corresponds to the maximum suction power in Mi Home.
+
 # Setting up
 Node.js application must be hosted in the same LAN with the vacuum. Robot IP address and token are set in `config.json`. Token can be obtained with [this patched Mi Home app](http://www.kapiba.ru/2017/11/mi-home.html).
 

@@ -9,6 +9,9 @@ Node.js application must be hosted in the same LAN with the vacuum. Robot IP add
 
 Vacuum must be assigned a static DHCP IP addess. Automatic discovery of the robot is possible and can be implemented with the APIs of [miio](https://github.com/aholstenson/miio) library (fill out an issue if you need it).
 
+# Build instructions
+// TODO ...build probably requires TypeScript compiler installation
+
 # Localization
 1. Copy `/i18n/en-US.json` file
 2. Translate strings to the needed language

@@ -1,0 +1,22 @@
+export const enum VacuumError {
+    NoError = 0,
+    LaserDistanceSensorError = 1,
+    CollisionSensorError = 2,
+    WheelsOnTopOfVoidMoveRobot = 3,
+    CleanHoveringSensorsAndMoveRobot = 4,
+    CleanMainBrush = 5,
+    CleanSideBrush = 6,
+    MainWheelStuck = 7,
+    DeviceStuckCleanArea = 8,
+    DustCollectorMissing = 9,
+    CleanFilter = 10,
+    StuckInMagneticBarrier = 11,
+    LowBattery = 12,
+    ChargingFault = 13,
+    BatteryFault = 14,
+    WallSensorsDirtyWipeThem = 15,
+    PlaceMeOnFlatSurface = 16,
+    SideBrushesProblemRebootMe = 17,
+    SuctionFanProblem = 18,
+    UnpoweredChargingStation = 19
+}

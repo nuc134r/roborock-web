@@ -7,5 +7,6 @@
     "ModeMopping" : "Влажная",
     "CleanupModeLabel" : "Режим уборки:",
     "CurrentModeSweeping" : "Сухая уборка",
-    "CurrentModeMopping" : "Влажная уборка"
+    "CurrentModeMopping" : "Влажная уборка",
+    "FindMe" : "Найти робота"
 }

@@ -17,11 +17,17 @@ html(lang='')
 
       .art.art-charged
 
-      .cleanup-mode-label(v-bind:style="{ visibility: sweepingModeVisibility }") #{i18n.CurrentModeSweeping}
-      .cleanup-mode-label(v-bind:style="{ visibility: moppingModeVisibility }") #{i18n.CurrentModeMopping}
+      .app-name Roborock Web
+
+      .ellipsis-icon.menu
+        ul
+          li(v-on:click="findMe") #{i18n.FindMe}
+
+      .cleanup-mode-label(v-bind:style="{ 'visibility': sweepingModeVisibility }") #{i18n.CurrentModeSweeping}
+      .cleanup-mode-label(v-bind:style="{ 'visibility': moppingModeVisibility }") #{i18n.CurrentModeMopping}
 
       .counters-wrap
-        .counter-wrap(v-bind:style="{ visibility: inCleaningUiVisibility }")
+        .counter-wrap(v-bind:style="{ 'visibility': inCleaningUiVisibility }")
           .counter
             .counter-value {{area}}
               sup.counter-unit м2
@@ -31,7 +37,7 @@ html(lang='')
             .counter-value {{battery}}
               sup.counter-unit %
           .counter-text #{i18n.CounterBatteryLabel}
-        .counter-wrap(v-bind:style="{ visibility: inCleaningUiVisibility }")
+        .counter-wrap(v-bind:style="{ 'visibility': inCleaningUiVisibility }")
           .counter
             .counter-value {{time}}‘
           .counter-text #{i18n.CounterTimeLabel}

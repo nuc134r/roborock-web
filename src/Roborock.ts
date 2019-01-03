@@ -17,5 +17,9 @@ export class Roborock {
         return new RoborockStatus(result[0]);
     }
 
+    findMe(): Promise<any> {
+        return this.device.call("find_me", []);
+    }
+
     private device: Miio.Device;
 }

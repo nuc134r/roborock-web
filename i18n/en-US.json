@@ -7,5 +7,6 @@
     "ModeMopping" : "Mop",
     "CleanupModeLabel" : "Cleanup mode:",
     "CurrentModeSweeping" : "Sweeping",
-    "CurrentModeMopping" : "Mopping"
+    "CurrentModeMopping" : "Mopping",
+    "FindMe" : "Find me"
 }

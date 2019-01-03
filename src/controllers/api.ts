@@ -20,6 +20,7 @@ ApiRouter.use((req: Request, res: Response, next: NextFunction) => {
 ApiRouter.get("/status", async (req: Request, res: Response) => RunAndSendResultAsJson(res, Robot.getStatus()));
 ApiRouter.post("/mop", async (req: Request, res: Response) => RunAndSendResultAsJson(res, Robot.setMode(VacuumMode.Mop)));
 ApiRouter.post("/sweep", async (req: Request, res: Response) => RunAndSendResultAsJson(res, Robot.setMode(VacuumMode.Max)));
+ApiRouter.get("/find_me", async (req: Request, res: Response) => RunAndSendResultAsJson(res, Robot.findMe()));
 
 async function RunAndSendResultAsJson(res: Response, promise: Promise<any>) {
     try {

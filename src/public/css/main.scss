@@ -92,6 +92,9 @@ textarea {
 
 $accent: #606BCF;
 $accent-darker: #474f98;
+$grey: #9e9e9e;
+$plum: #8e44ad;
+$shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 8px 0 rgba(0, 0, 0, 0.12);
 
 button {
   font-family: inherit;
@@ -194,3 +197,61 @@ button:focus {
   margin-left: 16px;
   margin-bottom: 8px;
 }
+
+.app-name {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  font-weight: 500;
+  font-size: 20px;
+  color: #FFFFFF;
+}
+
+.ellipsis-icon {
+  position: absolute;
+  top: 9px;
+  right: 0px;
+  height: 45px;
+  color: white;
+  width: 35px;
+  padding-left: 20px;
+}
+
+.ellipsis-icon:before {
+  content: '\2807';
+  font-size: 30px;
+}
+
+.menu {
+  position: absolute;
+  ul {
+    padding-inline-start: 0;
+    padding-inline-end: 0;
+    position: absolute;
+    right: 0;
+    top: 25px;
+    transition: all 0.2s ease;
+    transform: scale(0);
+    transform-origin: 100% 0;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 8px 0 rgba(0, 0, 0, 0.12);
+    background: white;
+    li {
+      display: block;
+      width: 100%;
+      display: block;
+      color: black;
+      white-space: pre;
+      padding: 16px;
+      user-select: none;
+      &:not(:focus):hover {
+        background: lighten($grey, 30%);
+      }
+    }
+  }
+  &:hover {
+    ul {
+      transform: scale(1);
+    }
+  }
+}
+

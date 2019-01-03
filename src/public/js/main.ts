@@ -1,7 +1,7 @@
 import Vue from "vue";
 
 import ApplyHtmlHacks from "./HtmlHacks";
-import { GetStatus } from "./Robot";
+import { GetStatus, FindMe } from "./Robot";
 import { VacuumMode } from "../../common/VacuumMode";
 
 document.addEventListener("DOMContentLoaded", DomLoaded);
@@ -19,8 +19,6 @@ async function RefreshStatus() {
         vm.time = Math.floor(status.Result.SessionCleaningTime / 60); // to minutes
         vm.state = status.Result.State;
 
-        vm.isCleaning = status.Result.IsCleaning;
-
         switch (status.Result.Mode) {
             case VacuumMode.Max:
             case VacuumMode.Power:
@@ -34,6 +32,8 @@ async function RefreshStatus() {
                 vm.isMopMode = true;
                 break;
         }
+
+        vm.isCleaning = status.Result.IsCleaning;
     } else {
         alert(status.Error.Error);
     }
@@ -50,17 +50,26 @@ const vm = new Vue({
 
         isCleaning: false,
         isSweepMode: false,
-        isMopMode: false
+        isMopMode: false,
+
+        inCleaningUiVisibility: "collapse",
+        sweepingModeVisibility: "collapse",
+        moppingModeVisibility: "collapse",
     },
-    computed: {
-        sweepingModeVisibility: function() {
-           return (this.isCleaning && this.isSweepMode) ? "visible" : "collapsed" ;
-        },
-        moppingModeVisibility: function() {
-           return (this.isCleaning && this.isMopMode) ? "visible" : "collapsed" ;
-        },
-        inCleaningUiVisibility: function() {
-           return this.isCleaning ? "visible" : "collapsed" ;
+    watch: {
+        isCleaning: function (val) {
+            this.inCleaningUiVisibility = val ? "visible" : "collapse";
+            this.sweepingModeVisibility = (val && this.isSweepMode) ? "visible" : "collapse";
+            this.moppingModeVisibility = (val && this.isMopMode) ? "visible" : "collapse";
         }
-     }
+    },
+    methods: {
+        findMe: function () {
+            FindMe();
+            window.focus();
+            try {
+                (document.activeElement as HTMLElement).blur();
+            } catch (error) {}
+        }
+    }
 });

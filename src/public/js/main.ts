@@ -1,8 +1,9 @@
 import Vue from "vue";
 
 import ApplyHtmlHacks from "./HtmlHacks";
-import { GetStatus, FindMe } from "./Robot";
+import { GetStatus, FindMe, SetMopMode, SetSweepMode, StartCleanup, PauseCleanup, GoHome } from "./Robot";
 import { VacuumMode } from "../../common/VacuumMode";
+import { VacuumState } from "../../common/VacuumState";
 
 document.addEventListener("DOMContentLoaded", DomLoaded);
 
@@ -34,6 +35,8 @@ async function RefreshStatus() {
         }
 
         vm.isCleaning = status.Result.IsCleaning;
+
+
     } else {
         alert(status.Error.Error);
     }
@@ -55,12 +58,37 @@ const vm = new Vue({
         inCleaningUiVisibility: "collapse",
         sweepingModeVisibility: "collapse",
         moppingModeVisibility: "collapse",
+
+        chargingStateDisplay: "none",
+        cleaningStateDisplay: "none",
+        pausedStateDisplay: "none"
     },
     watch: {
         isCleaning: function (val) {
             this.inCleaningUiVisibility = val ? "visible" : "collapse";
             this.sweepingModeVisibility = (val && this.isSweepMode) ? "visible" : "collapse";
             this.moppingModeVisibility = (val && this.isMopMode) ? "visible" : "collapse";
+        },
+        state: function (state) {
+            switch (state as VacuumState) {
+                case VacuumState.Charging:
+                    this.chargingStateDisplay = "block";
+                    this.cleaningStateDisplay = "none";
+                    this.pausedStateDisplay = "none";
+                    break;
+                case VacuumState.Cleaning:
+                    this.chargingStateDisplay = "none";
+                    this.cleaningStateDisplay = "block";
+                    this.pausedStateDisplay = "none";
+                    break;
+                case VacuumState.Paused:
+                    this.chargingStateDisplay = "none";
+                    this.cleaningStateDisplay = "none";
+                    this.pausedStateDisplay = "block";
+                    break;
+                default:
+                    break;
+            }
         }
     },
     methods: {
@@ -69,7 +97,27 @@ const vm = new Vue({
             window.focus();
             try {
                 (document.activeElement as HTMLElement).blur();
-            } catch (error) {}
-        }
+            } catch (error) { }
+        },
+        setSweepMode: async function () {
+            await SetSweepMode();
+            RefreshStatus();
+        },
+        setMopMode: async function () {
+            await SetMopMode();
+            RefreshStatus();
+        },
+        startCleanup: async function () {
+            await StartCleanup();
+            RefreshStatus();
+        },
+        pauseCleanup: async function () {
+            await PauseCleanup();
+            RefreshStatus();
+        },
+        goHome: async function () {
+            await GoHome();
+            RefreshStatus();
+        },
     }
 });

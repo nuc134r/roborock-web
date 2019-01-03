@@ -8,5 +8,8 @@
     "CleanupModeLabel" : "Режим уборки:",
     "CurrentModeSweeping" : "Сухая уборка",
     "CurrentModeMopping" : "Влажная уборка",
-    "FindMe" : "Найти робота"
+    "FindMe" : "Найти робота",
+    "PauseCleanupButton" : "Остановить уборку",
+    "GoHomeButton" : "Вернуться на станцию",
+    "ResumeCleanupButton" : "Продолжить уборку"
 }

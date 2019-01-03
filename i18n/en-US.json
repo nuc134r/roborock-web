@@ -8,5 +8,8 @@
     "CleanupModeLabel" : "Cleanup mode:",
     "CurrentModeSweeping" : "Sweeping",
     "CurrentModeMopping" : "Mopping",
-    "FindMe" : "Find me"
+    "FindMe" : "Find me",
+    "PauseCleanupButton" : "Pause",
+    "GoHomeButton" : "Return to the dock",
+    "ResumeCleanupButton" : "Resume cleanup"
 }

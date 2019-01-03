@@ -43,11 +43,14 @@ html(lang='')
           .counter-text #{i18n.CounterTimeLabel}
       
       .buttons-wrap
-        .mode-switch-label #{i18n.CleanupModeLabel}
-        .mode-switch-wrap
-          button.button-switch.button-switch-left(v-bind:class="{ 'button-switch-active': isSweepMode }") #{i18n.ModeSweeping}
-          button.button-switch.button-switch-right(v-bind:class="{ 'button-switch-active': isMopMode }") #{i18n.ModeMopping}
+        .mode-switch-label(v-bind:style="{ 'display': chargingStateDisplay }") #{i18n.CleanupModeLabel}
+        .mode-switch-wrap(v-bind:style="{ 'display': chargingStateDisplay }")
+          button.button-switch.button-switch-left(v-on:click="setSweepMode", v-bind:class="{ 'button-switch-active': isSweepMode }") #{i18n.ModeSweeping}
+          button.button-switch.button-switch-right(v-on:click="setMopMode", v-bind:class="{ 'button-switch-active': isMopMode }") #{i18n.ModeMopping}
 
-        button.button.button-primary #{i18n.StartCleanupButton}
+        button.button.button-primary(v-on:click="startCleanup", v-bind:style="{ 'display': chargingStateDisplay }") #{i18n.StartCleanupButton}
+        button.button.button-warning(v-on:click="pauseCleanup", v-bind:style="{ 'display': cleaningStateDisplay }") #{i18n.PauseCleanupButton}
+        button.button.button-secondary(v-on:click="goHome", v-bind:style="{ 'display': pausedStateDisplay }") #{i18n.GoHomeButton}
+        button.button.button-primary(v-on:click="startCleanup", v-bind:style="{ 'display': pausedStateDisplay }") #{i18n.ResumeCleanupButton}
 
   script(src='/js/main.js')

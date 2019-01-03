@@ -18,9 +18,14 @@ ApiRouter.use((req: Request, res: Response, next: NextFunction) => {
 });
 
 ApiRouter.get("/status", async (req: Request, res: Response) => RunAndSendResultAsJson(res, Robot.getStatus()));
+ApiRouter.get("/find_me", async (req: Request, res: Response) => RunAndSendResultAsJson(res, Robot.findMe()));
+
 ApiRouter.post("/mop", async (req: Request, res: Response) => RunAndSendResultAsJson(res, Robot.setMode(VacuumMode.Mop)));
 ApiRouter.post("/sweep", async (req: Request, res: Response) => RunAndSendResultAsJson(res, Robot.setMode(VacuumMode.Max)));
-ApiRouter.get("/find_me", async (req: Request, res: Response) => RunAndSendResultAsJson(res, Robot.findMe()));
+
+ApiRouter.post("/start", async (req: Request, res: Response) => RunAndSendResultAsJson(res, Robot.startCleanup()));
+ApiRouter.post("/pause", async (req: Request, res: Response) => RunAndSendResultAsJson(res, Robot.pauseCleanup()));
+ApiRouter.post("/go_home", async (req: Request, res: Response) => RunAndSendResultAsJson(res, Robot.goToTheDock()));
 
 async function RunAndSendResultAsJson(res: Response, promise: Promise<any>) {
     try {

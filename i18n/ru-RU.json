@@ -5,5 +5,7 @@
     "StartCleanupButton" : "Начать уборку",
     "ModeSweeping" : "Сухая",
     "ModeMopping" : "Влажная",
-    "CleanupModeLabel" : "Режим уборки:"
+    "CleanupModeLabel" : "Режим уборки:",
+    "CurrentModeSweeping" : "Сухая уборка",
+    "CurrentModeMopping" : "Влажная уборка"
 }

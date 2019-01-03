@@ -17,28 +17,30 @@ html(lang='')
 
       .art.art-charged
 
+      .cleanup-mode-label(v-bind:style="{ visibility: sweepingModeVisibility }") #{i18n.CurrentModeSweeping}
+      .cleanup-mode-label(v-bind:style="{ visibility: moppingModeVisibility }") #{i18n.CurrentModeMopping}
+
       .counters-wrap
-        .counter-wrap
+        .counter-wrap(v-bind:style="{ visibility: inCleaningUiVisibility }")
           .counter
-            .counter-value 15
+            .counter-value {{area}}
               sup.counter-unit м2
           .counter-text #{i18n.CounterAreaLabel}
         .counter-wrap
           .counter
-            .counter-value 38
+            .counter-value {{battery}}
               sup.counter-unit %
           .counter-text #{i18n.CounterBatteryLabel}
-        .counter-wrap
+        .counter-wrap(v-bind:style="{ visibility: inCleaningUiVisibility }")
           .counter
-            .counter-value 14‘
+            .counter-value {{time}}‘
           .counter-text #{i18n.CounterTimeLabel}
       
       .buttons-wrap
         .mode-switch-label #{i18n.CleanupModeLabel}
-        .mode-switch-label {{message}}
         .mode-switch-wrap
-          button.button-switch.button-switch-left.button-switch-active #{i18n.ModeSweeping}
-          button.button-switch.button-switch-right #{i18n.ModeMopping}
+          button.button-switch.button-switch-left(v-bind:class="{ 'button-switch-active': isSweepMode }") #{i18n.ModeSweeping}
+          button.button-switch.button-switch-right(v-bind:class="{ 'button-switch-active': isMopMode }") #{i18n.ModeMopping}
 
         button.button.button-primary #{i18n.StartCleanupButton}
 

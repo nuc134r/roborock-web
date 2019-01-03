@@ -45,9 +45,20 @@ textarea {
   background: linear-gradient(180deg, #8882CC 3.87%, rgba(156, 151, 215, 0) 100%);
 }
 
+.cleanup-mode-label {
+  font-size: 25px;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  top: 280px;
+  text-align: center;
+  left: 0px;
+  right: 0px;
+}
+
 .counters-wrap {
   position: absolute;
-  top: 300px;
+  top: 330px;
 }
 
 .counter-wrap {

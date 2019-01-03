@@ -5,5 +5,7 @@
     "StartCleanupButton" : "Start cleanup",
     "ModeSweeping" : "Sweep",
     "ModeMopping" : "Mop",
-    "CleanupModeLabel" : "Cleanup mode:"
+    "CleanupModeLabel" : "Cleanup mode:",
+    "CurrentModeSweeping" : "Sweeping",
+    "CurrentModeMopping" : "Mopping"
 }

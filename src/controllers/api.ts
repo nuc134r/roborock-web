@@ -11,7 +11,6 @@ export let ApiRouter = Router();
 
 ApiRouter.use((req: Request, res: Response, next: NextFunction) => {
     if (Robot == undefined) {
-        res.status(400);
         res.send(new ApiError("Robot is not connected", ApiErrorType.RobotNotConnected));
     } else {
         next();
@@ -26,7 +25,6 @@ async function RunAndSendResultAsJson(res: Response, promise: Promise<any>) {
     try {
         res.json(await promise);
     } catch (error) {
-        res.status(400);
         res.send(JSON.stringify(error));
     }
 }

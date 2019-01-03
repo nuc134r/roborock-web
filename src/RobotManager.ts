@@ -1,5 +1,5 @@
 import * as Miio from "miio";
-import { Roborock } from "./models/Roborock";
+import { Roborock } from "./Roborock";
 
 export let Robot: Roborock;
 

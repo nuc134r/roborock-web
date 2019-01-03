@@ -1,9 +1,9 @@
 "use strict";
 
 import { Response, Request, NextFunction, Router } from "express";
-import { Robot } from "./../RobotManager";
-import { VacuumMode } from "../models/VacuumMode";
-import { ApiError, ApiErrorType } from "./ApiError";
+import { Robot } from "../RobotManager";
+import { VacuumMode } from "../common/VacuumMode";
+import { ApiError, ApiErrorType } from "../common/ApiError";
 
 // API methods
 

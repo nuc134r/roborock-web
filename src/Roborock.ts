@@ -1,6 +1,6 @@
 import * as Miio from "miio";
-import { VacuumMode } from "./VacuumMode";
-import { RoborockStatus } from "./RoborockStatus";
+import { VacuumMode } from "./common/VacuumMode";
+import { RoborockStatus } from "./common/RoborockStatus";
 
 export class Roborock {
 

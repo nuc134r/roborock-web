@@ -12,32 +12,34 @@ html(lang='')
     link(rel='stylesheet', href='/css/main.css')
 
   body(id='body')
-    .art-bg
+    div(id="root")
+      .art-bg
 
-    .art.art-charged
+      .art.art-charged
 
-    .counters-wrap
-      .counter-wrap
-        .counter
-          .counter-value 15
-            sup.counter-unit м2
-        .counter-text #{i18n.CounterAreaLabel}
-      .counter-wrap
-        .counter
-          .counter-value 38
-            sup.counter-unit %
-        .counter-text #{i18n.CounterBatteryLabel}
-      .counter-wrap
-        .counter
-          .counter-value 14‘
-        .counter-text #{i18n.CounterTimeLabel}
-    
-    .buttons-wrap
-      .mode-switch-label #{i18n.CleanupModeLabel}
-      .mode-switch-wrap
-        button.button-switch.button-switch-left.button-switch-active #{i18n.ModeSweeping}
-        button.button-switch.button-switch-right #{i18n.ModeMopping}
+      .counters-wrap
+        .counter-wrap
+          .counter
+            .counter-value 15
+              sup.counter-unit м2
+          .counter-text #{i18n.CounterAreaLabel}
+        .counter-wrap
+          .counter
+            .counter-value 38
+              sup.counter-unit %
+          .counter-text #{i18n.CounterBatteryLabel}
+        .counter-wrap
+          .counter
+            .counter-value 14‘
+          .counter-text #{i18n.CounterTimeLabel}
+      
+      .buttons-wrap
+        .mode-switch-label #{i18n.CleanupModeLabel}
+        .mode-switch-label {{message}}
+        .mode-switch-wrap
+          button.button-switch.button-switch-left.button-switch-active #{i18n.ModeSweeping}
+          button.button-switch.button-switch-right #{i18n.ModeMopping}
 
-      button.button.button-primary #{i18n.StartCleanupButton}
+        button.button.button-primary #{i18n.StartCleanupButton}
 
-    script(src='/js/main.js')
+  script(src='/js/main.js')

@@ -1,4 +1,5 @@
 import { ApiError, ApiErrorType } from "../../common/ApiError";
+import Vue from "vue";
 
 document.addEventListener("DOMContentLoaded", DomLoaded);
 
@@ -15,7 +16,11 @@ function ConfigureHeight() {
 
     window.addEventListener("onorientationchange", setVerticalSize, true);
     window.onresize = () => setVerticalSize();
-
-    const a = new ApiError("s", ApiErrorType.RobotNotConnected);
-    console.log(a.Error);
 }
+
+const vm = new Vue({
+    el: "#root",
+    data: {
+        message: "Hello from Vue!"
+    }
+});

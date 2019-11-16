@@ -1,0 +1,15 @@
+{
+    "CounterAreaLabel" : "איזור",
+    "CounterBatteryLabel" : "סוללה",
+    "CounterTimeLabel" : "זמן",
+    "StartCleanupButton" : "התחל בנקיון",
+    "ModeSweeping" : "טיטוא",
+    "ModeMopping" : "ניגוב",
+    "CleanupModeLabel" : "מצב ניקיון:",
+    "CurrentModeSweeping" : "מטאטא",
+    "CurrentModeMopping" : "מנגב",
+    "FindMe" : "מצא אותי",
+    "PauseCleanupButton" : "השהה",
+    "GoHomeButton" : "חזור לעמדת הטעינה",
+    "ResumeCleanupButton" : "חזור לפעולת הניקיון"
+}
